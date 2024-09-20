@@ -106,3 +106,11 @@ end
 
 local Tab2 = Win:CraftTab('Misc') -- Name
 local Page2 = Tab2:CraftPage('',1) -- Name,1 or 2
+
+Page2:Button('Skipp Loading Screen',function() --Name
+    local cam = workspace.Camera
+    cam.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+    cam.CameraType = Enum.CameraType.Custom
+    game.Players.LocalPlayer.CameraMaxZoomDistance = 20
+    game:GetService("Players").LocalPlayer.PlayerGui.Loading:Destroy()
+end)
