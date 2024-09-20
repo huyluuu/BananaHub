@@ -1,17 +1,30 @@
+if not game.Players.LocalPlayer:FindFirstChild("PlayerScripts") then
+    game:GetService("TeleportService"):Teleport(13970285340,game.Players.LocalPlayer)
+    queue_on_teleport[[
+        game:GetService("TeleportService"):Teleport(13970285340,game.Players.LocalPlayer)
+    
+    ]]
+    end
+        warn("Anti afk running")
+    game:GetService("Players").LocalPlayer.Idled:connect(function()
+    warn("Anti afk ran")
+    game:GetService("VirtualUser"):CaptureController()
+    game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+    end)
+
 local normal = loadstring(game:HttpGet(('https://raw.githubusercontent.com/huyluuu/Library/refs/heads/main/King.lua')))()
 
 _G.Color = Color3.fromRGB(0, 0, 255) -- Color UI
 _G.Logo = 13990972098 -- ID Logo Your Hub
 local Win = library:Evil("Banana Hub","",_G.Logo )
 
-local Tab = Win:CraftTab('Main') -- Name
-local Page = Tab:CraftPage('',1) -- Name,1 or 2
+local Tab1 = Win:CraftTab('Main') -- Name
+local Page1 = Tab1:CraftPage('',1) -- Name,1 or 2
 
-Page:Toggle('Auto Food Delivery', function(state) -- Toggle,Def,callback
-    getfenv().money = (state)
-    while getfenv().money do
-    task.wait()
-        repeat task.wait()
+Page1:Toggle('Auto Food Delivery', function(state) -- Toggle,Def,callback
+    spawn(function()
+    while wait() do
+        if state then
             local prox = game:GetService("Workspace").Jobs.DeliverySystem.Clicker:FindFirstChildOfClass("ProximityPrompt")
             if prox.Enabled == true then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=prox.Parent.CFrame*CFrame.new(0,0,5)
@@ -42,15 +55,13 @@ Page:Toggle('Auto Food Delivery', function(state) -- Toggle,Def,callback
                   end
                 end
     end)
+end)
 
-Page:Toggle('Auto Farm', function(state)
-    getfenv().test = (state and true or false)
-    game.Players.LocalPlayer.Character.Head.Anchored = false
+Page1:Toggle('Auto Farm', function(state)
     spawn(function()
-    while getfenv().test do
+        while wait() do
+            if state then
         pcall(function()
-    task.wait()
-    if getfenv().money ~= true then
     if game.Players.LocalPlayer.Character.Humanoid.SeatPart ~= nil then
     game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent.PrimaryPart.Velocity = game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent.PrimaryPart.CFrame.LookVector*400
     end
@@ -92,3 +103,6 @@ end
     end)
     end
     end)
+
+local Tab2 = Win:CraftTab('Misc') -- Name
+local Page2 = Tab2:CraftPage('',1) -- Name,1 or 2
