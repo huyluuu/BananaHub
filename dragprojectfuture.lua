@@ -11,20 +11,16 @@ if not game.Players.LocalPlayer:FindFirstChild("PlayerScripts") then
     game:GetService("VirtualUser"):CaptureController()
     game:GetService("VirtualUser"):ClickButton2(Vector2.new())
     end)
-
-local normal = loadstring(game:HttpGet(('https://raw.githubusercontent.com/huyluuu/Library/refs/heads/main/King.lua')))()
-
-_G.Color = Color3.fromRGB(0, 0, 255) -- Color UI
-_G.Logo = 13990972098 -- ID Logo Your Hub
-local Win = library:Evil("Banana Hub","",_G.Logo )
-
-local Tab1 = Win:CraftTab('Main') -- Name
-local Page1 = Tab1:CraftPage('',1) -- Name,1 or 2
-
-Page1:Toggle('Auto Food Delivery', function(state) -- Toggle,Def,callback
-    spawn(function()
-    while wait() do
-        if state then
+    getfenv().grav = workspace.Gravity
+    local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Marco8642/science/main/ui%20libs2"))()
+    local example = library:CreateWindow({
+      text = "Drag Project"
+    })
+    example:AddToggle("Auto Food Delivery", function(state)
+    getfenv().money = (state and true or false)
+    while getfenv().money do
+    task.wait()
+        repeat task.wait()
             local prox = game:GetService("Workspace").Jobs.DeliverySystem.Clicker:FindFirstChildOfClass("ProximityPrompt")
             if prox.Enabled == true then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=prox.Parent.CFrame*CFrame.new(0,0,5)
@@ -55,13 +51,14 @@ Page1:Toggle('Auto Food Delivery', function(state) -- Toggle,Def,callback
                   end
                 end
     end)
-end)
-
-Page1:Toggle('Auto Farm', function(state)
+    example:AddToggle("Auto Farm", function(state)
+    getfenv().test = (state and true or false)
+    game.Players.LocalPlayer.Character.Head.Anchored = false
     spawn(function()
-        while wait() do
-            if state then
+    while getfenv().test do
         pcall(function()
+    task.wait()
+    if getfenv().money ~= true then
     if game.Players.LocalPlayer.Character.Humanoid.SeatPart ~= nil then
     game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent.PrimaryPart.Velocity = game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent.PrimaryPart.CFrame.LookVector*400
     end
@@ -103,14 +100,139 @@ end
     end)
     end
     end)
-
-local Tab2 = Win:CraftTab('Misc') -- Name
-local Page2 = Tab2:CraftPage('',1) -- Name,1 or 2
-
-Page2:Button('Skipp Loading Screen',function() --Name
+        local example = library:CreateWindow({
+            text = "Teleports"
+          })
+          example:AddButton("Teleport to vehicle", function()
+            pcall(function()
+				if getfenv().money == false then
+            game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace"):FindFirstChild("Folder"..game.Players.LocalPlayer.Name):FindFirstChildOfClass("Model").DriveSeat.Position)
+				end
+          end)  
+        end)
+    
+        example:AddButton("Teleport to Dealership", function()
+            local spot = CFrame.new(-608.287292, 4.20762491, 154.133835, -0.972057402, 1.17043957e-08, 0.234743387, -1.35618947e-08, 1, -1.06019328e-07, -0.234743387, -1.06240435e-07, -0.972057402)+Vector3.new(0,620,0)
+            if game.Players.LocalPlayer.Character.Humanoid.SeatPart ~= nil and getfenv().money == false then
+                 game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent.PrimaryPart =  game.Players.LocalPlayer.Character.Humanoid.SeatPart
+                game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent:PivotTo(spot)
+            elseif  getfenv().money == false then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame= spot
+            end
+        end)
+        example:AddButton("Teleport to Vip Houses", function()
+            local spot = CFrame.new(-157.390686, 3.55590415, -162.619614, -0.999450982, -3.9576328e-08, -0.0331323668, -3.7554905e-08, 1, -6.16327611e-08, 0.0331323668, -6.03546439e-08, -0.999450982)+Vector3.new(0,620,0)
+            if game.Players.LocalPlayer.Character.Humanoid.SeatPart ~= nil and getfenv().money == false then
+               game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent.PrimaryPart =  game.Players.LocalPlayer.Character.Humanoid.SeatPart
+                game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent:PivotTo(spot)
+            elseif  getfenv().money == false then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame= spot
+            end
+        end)
+        example:AddButton("Teleport to Drag race", function()
+            local spot = CFrame.new(26.5487614, 3.54278731, -526.0625, -0.0196847972, 4.19225508e-08, 0.999806225, -5.75967327e-08, 1, -4.30646772e-08, -0.999806225, -5.84332938e-08, -0.0196847972)+Vector3.new(0,620,0)
+            if game.Players.LocalPlayer.Character.Humanoid.SeatPart ~= nil and getfenv().money == false then
+               game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent.PrimaryPart =  game.Players.LocalPlayer.Character.Humanoid.SeatPart
+                game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent:PivotTo(spot)
+            elseif  getfenv().money == false then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame= spot
+            end
+        end)
+            example:AddButton("Teleport to foodpanda", function()
+              local spot = CFrame.new(-0.0975782275, 3.70432806, -243.674194, 0.0824485049, -7.59362564e-08, 0.996595323, -8.9118295e-08, 1, 8.35684517e-08, -0.996595323, -9.57049764e-08, 0.0824485049)+Vector3.new(0,620,0)
+    
+			  if game.Players.LocalPlayer.Character.Humanoid.SeatPart ~= nil and getfenv().money == false then
+              game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent.PrimaryPart =  game.Players.LocalPlayer.Character.Humanoid.SeatPart
+                game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent:PivotTo(spot)
+            elseif  getfenv().money == false then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame= spot
+            end    
+    end)
+            example:AddButton("Teleport to Mount Kiara", function()
+                local spot = CFrame.new(3969.83545, 3.55590558, -1198.41101, -0.920043468, 3.10609716e-09, 0.391816348, 1.42095935e-08, 1, 2.54388226e-08, -0.391816348, 2.89723729e-08, -0.920043468)+Vector3.new(0,620,0)
+				if game.Players.LocalPlayer.Character.Humanoid.SeatPart ~= nil and getfenv().money == false then
+             game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent.PrimaryPart =  game.Players.LocalPlayer.Character.Humanoid.SeatPart
+                game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent:PivotTo(spot)
+				elseif  getfenv().money == false then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame= spot
+            end
+    end)
+     example:AddToggle("Click Teleport", function(state)
+        getfenv().clickteleport = (state and true or false)
+    if getfenv().clickteleport == true then
+        local plr = game.Players.LocalPlayer
+        local Mouse = plr:GetMouse()
+        getfenv().run=Mouse.Button1Down:Connect(function()
+        if game.Players.LocalPlayer.Character.Humanoid.SeatPart ~= nil then
+     game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent.PrimaryPart =  game.Players.LocalPlayer.Character.Humanoid.SeatPart
+    game.Players.LocalPlayer.Character.Humanoid.SeatPart.Parent:PivotTo(CFrame.new(Mouse.Hit.Position+Vector3.new(0,15,0)))
+    else
+        game.Players.LocalPlayer.Character:MoveTo(Mouse.Hit.Position)
+        end
+        end)
+        elseif getfenv().clickteleport == false then
+       getfenv().run:Disconnect()
+        end
+    end)
+    local example = library:CreateWindow({
+      text = "Misc"
+    })
+    example:AddLabel("Player Speed Changer",function()
+    end)
+    example:AddBox("Enter Speed Value", function(object, focus)
+      if focus then
+     
+          getfenv().mood = tostring(object.Text)
+      end
+    end)
+    example:AddToggle("Speed Enabler", function(state)
+    getfenv().speedster = (state and true or false)
+    while getfenv().speedster do
+        task.wait()
+        pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = getfenv().mood
+        end)
+        end
+    end)
+    example:AddToggle("Infinite Jump", function(state)
+    getfenv().infjump = (state and true or false)
+    while getfenv().infjump do
+        task.wait()
+    if game.Players.LocalPlayer.Character.Humanoid.Jump == true then
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(3)
+    end
+    end
+    end)
+    example:AddLabel("Gravity Changer",function()
+    end)
+    example:AddBox("Enter Gravity Value", function(object, focus)
+      if focus then
+     
+          code = tonumber(object.Text)
+          workspace.Gravity = code
+      end
+    end)      
+    example:AddButton("reset gravity", function(state)
+    workspace.Gravity = getfenv().grav
+    end)
+    local example = library:CreateWindow({
+        text = "Misc"
+      })
+    example:AddButton("Skip Loading Screen", function(state)
     local cam = workspace.Camera
     cam.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
     cam.CameraType = Enum.CameraType.Custom
     game.Players.LocalPlayer.CameraMaxZoomDistance = 20
     game:GetService("Players").LocalPlayer.PlayerGui.Loading:Destroy()
-end)
+    end)
+    example:AddButton("Join Sentul", function(state)
+    writefile("dragprojectTphelper.txt","queue_on_teleport".."[[".."game"..".".."TeleportService"..":".."Teleport".."(13970285340"..",game.Players.LocalPlayer)".."]]")
+    game:GetService("TeleportService"):Teleport(11568403922)
+    wait()
+    queue_on_teleport[[
+    repeat task.wait()
+    until game:IsLoaded()
+    readfile("dragprojectTphelper.txt")
+    game:GetService("TeleportService"):Teleport(13970285340,game.Players.LocalPlayer)
+    ]]
+    end)
